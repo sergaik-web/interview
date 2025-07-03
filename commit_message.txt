@@ -1,0 +1,7 @@
+feat: Initial project setup and configuration  
+  
+This commit includes:  
+- Basic Next.js project structure.  
+- ESLint and Prettier configuration for code quality.  
+- Initial setup for global styles and _app.tsx.  
+- .gitignore configured to exclude node_modules and other build artifacts.  

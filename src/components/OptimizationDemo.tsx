@@ -30,6 +30,8 @@ const MemoizedChildComponent = React.memo(
   },
 );
 
+MemoizedChildComponent.displayName = "MemoizedChildComponent";
+
 const OptimizationDemo = () => {
   const [count, setCount] = useState<number>(0);
   const [text, setText] = useState<string>("");

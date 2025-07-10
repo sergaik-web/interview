@@ -1,12 +1,15 @@
 # Задача 5: Глобальное управление состоянием (Redux Toolkit с combineReducers)
 
 ## Цель:
+
 Понять принципы глобального управления состоянием в React-приложениях с использованием Redux и Redux Toolkit, а также явно использовать `combineReducers` для объединения редьюсеров.
 
 ## Теоретическая часть:
+
 Redux - это предсказуемый контейнер состояния для JavaScript-приложений. Он помогает писать приложения, которые ведут себя согласованно, работают в различных средах (клиент, сервер и нативный), и легко тестируются. Redux Toolkit - это официальный, рекомендуемый подход для написания Redux-логики. Он упрощает многие аспекты работы с Redux, такие как настройка стора, создание редьюсеров и экшенов.
 
 Основные концепции Redux:
+
 - **Store**: Хранит все состояние приложения в одном месте.
 - **Actions**: Объекты, описывающие, что произошло.
 - **Reducers**: Чистые функции, которые принимают текущее состояние и экшен, и возвращают новое состояние.
@@ -23,29 +26,29 @@ Redux - это предсказуемый контейнер состояния 
 1.  **Установите необходимые пакеты**: Вам нужно будет выполнить команду в терминале:
     `npm install @reduxjs/toolkit react-redux`
 2.  **Создайте Redux Store**:
-    *   Создайте папку `src/store`.
-    *   Внутри `src/store` создайте файл `index.ts` для настройки вашего Redux Store.
-    *   Используйте `configureStore` из `@reduxjs/toolkit`.
+    - Создайте папку `src/store`.
+    - Внутри `src/store` создайте файл `index.ts` для настройки вашего Redux Store.
+    - Используйте `configureStore` из `@reduxjs/toolkit`.
 3.  **Создайте Redux Slice**:
-    *   В папке `src/store` создайте файл `counterSlice.ts`.
-    *   Используйте `createSlice` из `@reduxjs/toolkit` для создания слайса счетчика. Он должен содержать:
-        *   Начальное состояние (`initialState`) с полем `value: 0`.
-        *   Редьюсеры для `increment`, `decrement` и `incrementByAmount`.
+    - В папке `src/store` создайте файл `counterSlice.ts`.
+    - Используйте `createSlice` из `@reduxjs/toolkit` для создания слайса счетчика. Он должен содержать:
+      - Начальное состояние (`initialState`) с полем `value: 0`.
+      - Редьюсеры для `increment`, `decrement` и `incrementByAmount`.
 4.  **Подключите Slice к Store с `combineReducers`**:
-    *   Импортируйте `counterSlice` в `src/store/index.ts`.
-    *   Явно используйте `combineReducers` для создания корневого редьюсера.
+    - Импортируйте `counterSlice` в `src/store/index.ts`.
+    - Явно используйте `combineReducers` для создания корневого редьюсера.
 5.  **Оберните приложение в `Provider`**:
-    *   В `pages/_app.tsx` импортируйте `Provider` из `react-redux` и оберните ваше приложение в него, передав созданный стор.
+    - В `pages/_app.tsx` импортируйте `Provider` из `react-redux` и оберните ваше приложение в него, передав созданный стор.
 
 ### Часть 2: Взаимодействие с Redux Store из компонента
 
 1.  **Создайте новый компонент `src/components/ReduxCounter.tsx`**.
 2.  **Реализуйте в `ReduxCounter.tsx`:**
-    *   Используйте хук `useSelector` из `react-redux` для получения текущего значения счетчика из стора.
-    *   Используйте хук `useDispatch` из `react-redux` для получения функции `dispatch`.
-    *   Создайте кнопки для `increment`, `decrement` и `incrementByAmount` (например, на 5).
-    *   При нажатии на кнопки, диспатчите соответствующие экшены из `counterSlice`.
-    *   Отобразите текущее значение счетчика.
+    - Используйте хук `useSelector` из `react-redux` для получения текущего значения счетчика из стора.
+    - Используйте хук `useDispatch` из `react-redux` для получения функции `dispatch`.
+    - Создайте кнопки для `increment`, `decrement` и `incrementByAmount` (например, на 5).
+    - При нажатии на кнопки, диспатчите соответствующие экшены из `counterSlice`.
+    - Отобразите текущее значение счетчика.
 
 ### Интеграция:
 
@@ -80,7 +83,7 @@ export default MyApp;
 ### `src/store/index.ts` (создать файл)
 
 ```typescript
-import { configureStore, combineReducers } from '@reduxjs/toolkit'; // Импортируйте combineReducers
+import { configureStore, combineReducers } from "@reduxjs/toolkit"; // Импортируйте combineReducers
 // TODO: Импортируйте ваш counterSlice.reducer
 // import counterReducer from './counterSlice';
 
@@ -103,7 +106,7 @@ export const store = configureStore({
 ### `src/store/counterSlice.ts` (создать файл)
 
 ```typescript
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CounterState {
   value: number;
@@ -114,7 +117,7 @@ const initialState: CounterState = {
 };
 
 const counterSlice = createSlice({
-  name: 'counter',
+  name: "counter",
   initialState,
   reducers: {
     // TODO: Реализуйте редьюсеры increment, decrement, incrementByAmount
